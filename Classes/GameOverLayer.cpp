@@ -31,10 +31,18 @@
 #include "Bullets.h"
 #include <sstream>
 
+#define  HIGH_SCORE_KEY "high_sroce_key"
 GameOverLayer* GameOverLayer::create(int score)
 {
 	GameOverLayer *pRet = new GameOverLayer();
 	pRet->m_score=score;
+	int highsore = CCUserDefault::getInstance()->getIntegerForKey(HIGH_SCORE_KEY, 0);
+	if (highsore < score)
+	{
+		highsore = score;
+		CCUserDefault::getInstance()->setIntegerForKey(HIGH_SCORE_KEY, highsore);
+	}
+	pRet->m_highscore = highsore;
 	if (pRet && pRet->init())
 	{
 		pRet->autorelease();
@@ -105,15 +113,39 @@ void GameOverLayer::ShowScore()
     
     std::ostringstream pScore;
     pScore<<m_score;
+
     auto score_label=LabelBMFont::create(pScore.str(), "gameover_score_num.fnt");
     score_label->setAnchorPoint(Vec2(0.5f,0.5f));
-    score_label->setPosition(Vec2(1000,visibleSize.height/2-40));
+    score_label->setPosition(Vec2(visibleSize.width/2,visibleSize.height/2-30));
+	/*
     score_label->runAction(Sequence::create(
                            MoveTo::create(0.5f, Vec2(visibleSize.width/2,visibleSize.height/2-30)),
                                             ScaleTo::create(0.1f, 1.3f),
                                             ScaleTo::create(0.1f, 0.98f),
                                             ScaleTo::create(0.1f, 1.2f),NULL));
+	*/
     addChild(score_label,2);
+
+	// best sroce 
+	
+	char scoreStr[32];
+	sprintf(scoreStr, "Best: %d",m_highscore);
+	auto highScoreLable = CCLabelTTF::create();
+	highScoreLable->setFontSize(64);
+	highScoreLable->setString(scoreStr);
+	highScoreLable->setColor(Color3B(254, 208, 18));
+	highScoreLable->setAnchorPoint(Vec2(0.5f, 0.5f));
+	highScoreLable->setPosition(Vec2( visibleSize.width/2 , visibleSize.height/2 + 200) );
+	/*
+	highScoreLable->runAction(Sequence::create(
+					MoveTo::create(0.5f, Vec2(visibleSize.width/2,visibleSize.height/2 + 200)),
+					ScaleTo::create(0.1f, 1.3f),
+					ScaleTo::create(0.1f, 0.98f),
+					ScaleTo::create(0.1f, 1.2f),NULL));
+	*/
+	addChild(highScoreLable,2);
+	
+
 
 }
 

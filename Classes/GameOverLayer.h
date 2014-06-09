@@ -40,7 +40,7 @@ public:
     virtual bool init();
     
 private:
-    
+    int m_highscore;   
     int m_score;
     MenuItemSprite* backtomenu_Item;
     MenuItemSprite* playagain_Item;
