@@ -26,6 +26,7 @@ proj.win32/Debug.win32/
 bin/
 assets/
 gen/
+cocos2d/
 libs/
 lint.xml
 obj/
