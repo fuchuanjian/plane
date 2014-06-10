@@ -28,5 +28,26 @@ package com.chuanonly.plane;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 
+import android.os.Bundle;
+
 public class AppActivity extends Cocos2dxActivity {
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		initAds();
+	}
+
+	private void initAds() {
+        /*
+        LinearLayout layout = new LinearLayout(this);  
+        layout.setOrientation(LinearLayout.VERTICAL);  
+        addContentView(layout, new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT)); 
+        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		lp.gravity = Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL;
+		layout.setLayoutParams(lp); 
+        AdView adView = new AdView(this, AdSize.BANNER, "");  
+        layout.addView(adView);  
+        adView.loadAd(new AdRequest());
+        */
+	}
 }
