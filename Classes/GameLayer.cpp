@@ -112,7 +112,7 @@ void GameLayer::gameMaster(float dt)
     {
         return;
     }
-    _elapsed+=dt;
+    _elapsed+=dt; // time
     int enemyCount =EnemyController::enemies.size();
     //if(_elapsed < 10 && enemyCount < 5)
     if(enemyCount < 5 &&_elapsed < 60)

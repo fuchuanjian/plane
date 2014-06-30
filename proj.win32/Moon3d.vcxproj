@@ -145,6 +145,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClCompile Include="..\Classes\GameLayer.cpp" />
     <ClCompile Include="..\Classes\GameOverLayer.cpp" />
     <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\JniUtil.cpp" />
     <ClCompile Include="..\Classes\LicenseLayer.cpp" />
     <ClCompile Include="..\Classes\LoadingScene.cpp" />
     <ClCompile Include="..\Classes\MainMenuScene.cpp" />
@@ -168,6 +169,7 @@ xcopy /Y /Q "$(EngineRoot)external\websockets\prebuilt\win32\*.*" "$(OutDir)"</C
     <ClInclude Include="..\Classes\GameLayer.h" />
     <ClInclude Include="..\Classes\GameOverLayer.h" />
     <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\JniUtil.h" />
     <ClInclude Include="..\Classes\LicenseLayer.h" />
     <ClInclude Include="..\Classes\LoadingScene.h" />
     <ClInclude Include="..\Classes\MainMenuScene.h" />

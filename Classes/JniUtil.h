@@ -11,5 +11,4 @@ public:
 	static void hideAd();
 	static void checkAPP();
 };
-
-#endif 
+#endif
